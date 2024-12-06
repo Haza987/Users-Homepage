@@ -1,4 +1,5 @@
-﻿using Data.Services;
+﻿using Data.Interfaces;
+using Data.Services;
 using Domain.Models;
 using MainApp.Interfaces;
 
@@ -6,11 +7,19 @@ namespace MainApp.Services;
 
 public class ContactService : IContactService
 {
-    private List<Contact> _contacts = new List<Contact>();
-    private int _nextID = 0;
-    private readonly FileService _fileService = new FileService();
+    private List<Contact> _contacts;
+    private int _nextID;
+    private readonly IFileService _fileService;
 
-    //How to create a new contact
+    // GitHub Copilot suggested this change to adhere to S in SOLID
+    public ContactService(IFileService fileService)
+    {
+        _fileService = fileService;
+        _contacts = _fileService.LoadListFromFile();
+        _nextID = _contacts.Any() ? _contacts.Max(c => c.Id) : 0;
+    }
+
+    // How to create a new contact
     public void CreateContact(Contact contact)
     {
         contact.Id = ++_nextID;
@@ -21,7 +30,6 @@ public class ContactService : IContactService
     // How to list all contacts
     public IEnumerable<Contact> GetAllContacts()
     {
-        _contacts = _fileService.LoadListFromFile();
         return _contacts;
     }
 
@@ -31,11 +39,13 @@ public class ContactService : IContactService
         return _contacts.FirstOrDefault(contact => contact.Id == id);
     }
 
+    // How to edit a contact
     public void EditContact(Contact contact)
     {
-
+        // No changes made to this method
     }
 
+    // How to delete a contact
     public void DeleteContact(Contact contact)
     {
         _contacts.Remove(contact);

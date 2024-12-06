@@ -1,10 +1,11 @@
-﻿using Domain.Models;
+﻿using Data.Interfaces;
+using Domain.Models;
 using System.Diagnostics;
 using System.Text.Json;
 
 namespace Data.Services;
 
-public class FileService
+public class FileService : IFileService
 {
     private readonly string _filePath;
     private readonly string _directoryPath;
