@@ -10,10 +10,10 @@ public class FileService
     private readonly string _directoryPath;
     private readonly JsonSerializerOptions _jsonSerializerOptions;
 
-    public FileService(string directoryPath, string filePath)
+    public FileService(string directoryPath = "Data", string fileName = "contacts.json")
     {
         _directoryPath = directoryPath;
-        _filePath = filePath;
+        _filePath = Path.Combine(_directoryPath, fileName);
         _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
     }
 
@@ -22,7 +22,6 @@ public class FileService
         try
         {
             if (!Directory.Exists(_directoryPath))
-
                 Directory.CreateDirectory(_directoryPath);
 
             var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
@@ -42,13 +41,13 @@ public class FileService
                 return [];
 
             var json = File.ReadAllText(_filePath);
-            var list = JsonSerializer.Deserialize<List<Contact>>(json, _jsonSerializerOptions) ?? new List<Contact>();
+            var list = JsonSerializer.Deserialize<List<Contact>>(json, _jsonSerializerOptions);
             return list ?? [];
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
-            return [];
+            return new List<Contact>();
         }
     }
 }

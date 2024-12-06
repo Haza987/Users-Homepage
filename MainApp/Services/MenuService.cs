@@ -5,7 +5,8 @@ namespace MainApp.Services;
 
 public class MenuService(IContactService contactService) : IMenuService
 {
-
+    private readonly CreateContactDialogue _createContactDialogue = new(contactService);
+    private readonly GetAllContactsDialogue _getAllContactsDialogue = new(contactService);
     private readonly InvalidOptionDialogue _invalidOptionDialogue = new(contactService);
 
 
@@ -26,11 +27,11 @@ public class MenuService(IContactService contactService) : IMenuService
             switch (option.ToUpper())
             {
                 case "1":
-                    //CreateContact();
+                    _createContactDialogue.CreateContact();
                     break;
 
                 case "2":
-                    //GatAllContacts();
+                    _getAllContactsDialogue.GetAllContacts();
                     break;
 
                 case "3":
