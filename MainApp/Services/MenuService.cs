@@ -6,7 +6,6 @@ namespace MainApp.Services;
 public class MenuService(IContactService contactService) : IMenuService
 {
 
-    private readonly IContactService _contactService = contactService;
     private readonly InvalidOptionDialogue _invalidOptionDialogue = new(contactService);
 
 
