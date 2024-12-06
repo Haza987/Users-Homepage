@@ -1,4 +1,4 @@
-﻿using Business.Models;
+﻿using Domain.Models;
 using MainApp.Interfaces;
 
 namespace MainApp.Services;
