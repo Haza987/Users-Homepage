@@ -12,37 +12,40 @@ public class MenuService(IContactService contactService) : IMenuService
 
     public void ShowMenu()
     {
-        Console.Clear();
-        Console.WriteLine("---------- MAIN MENU ----------");
-        Console.WriteLine("1. Create a new contact");
-        Console.WriteLine("2. List all contacts");
-        Console.WriteLine("3. Edit contacts");
-        Console.WriteLine("E. Exit");
-        Console.WriteLine("------------------------------");
-        Console.Write("Choose an option: ");
-        var option = Console.ReadLine()!;
-
-        switch (option.ToUpper())
+        while(true)
         {
-            case "1":
-                CreateContact();
-                break;
+            Console.Clear();
+            Console.WriteLine("---------- MAIN MENU ----------");
+            Console.WriteLine("1. Create a new contact");
+            Console.WriteLine("2. List all contacts");
+            Console.WriteLine("3. Edit contacts");
+            Console.WriteLine("E. Exit");
+            Console.WriteLine("------------------------------");
+            Console.Write("Choose an option: ");
+            var option = Console.ReadLine()!;
 
-            case "2":
-                GatAllContacts();
-                break;
+            switch (option.ToUpper())
+            {
+                case "1":
+                    //CreateContact();
+                    break;
 
-            case "3":
-                EditContact();
-                break;
+                case "2":
+                    //GatAllContacts();
+                    break;
 
-            case "E":
-                ExitApp();
-                break;
+                case "3":
+                    //EditContact();
+                    break;
 
-            default:
-                InvalidOption();
-                break;
+                case "E":
+                    ExitApp();
+                    break;
+
+                default:
+                    _invalidOptionDialogue.InvalidOption();
+                    break;
+            }
         }
     }
 
@@ -50,10 +53,10 @@ public class MenuService(IContactService contactService) : IMenuService
     {
         Console.Clear();
         Console.WriteLine("-------- QUIT APPLICATION --------\n");
-        Console.Write("Are you sure you want to exit? (y/n): ");
+        Console.Write("Are you sure you want to exit? (Y/N): ");
         var option = Console.ReadLine()!;
 
-        if (option.ToLower() == "y")
+        if (option.ToUpper() == "Y")
         {
             Environment.Exit(0);
         }
