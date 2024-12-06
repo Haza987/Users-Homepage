@@ -31,4 +31,9 @@ public class ContactService : IContactService
     {
 
     }
+
+    public void DeleteContact(Contact contact)
+    {
+        _contacts.Remove(contact);
+    }
 }
