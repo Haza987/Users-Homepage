@@ -1,7 +1,11 @@
-﻿namespace MainApp.Dialogues;
+﻿using MainApp.Interfaces;
 
-public class InvalidOptionDialogue
+namespace MainApp.Dialogues;
+
+public class InvalidOptionDialogue(IContactService contactService)
 {
+    private IContactService contactService = contactService;
+
     public void InvalidOption()
     {
         Console.Clear();

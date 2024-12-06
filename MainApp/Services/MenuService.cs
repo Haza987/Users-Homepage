@@ -1,7 +1,15 @@
-﻿namespace MainApp.Services;
+﻿using MainApp.Dialogues;
+using MainApp.Interfaces;
 
-public class MenuService
+namespace MainApp.Services;
+
+public class MenuService(IContactService contactService) : IMenuService
 {
+
+    private readonly IContactService _contactService = contactService;
+    private readonly InvalidOptionDialogue _invalidOptionDialogue = new(contactService);
+
+
     public void ShowMenu()
     {
         Console.Clear();
@@ -19,9 +27,9 @@ public class MenuService
             case "1":
                 CreateContact();
                 break;
-            
+
             case "2":
-                ListAllContacts();
+                GatAllContacts();
                 break;
 
             case "3":
