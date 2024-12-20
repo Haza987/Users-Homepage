@@ -9,7 +9,7 @@ public class InvalidOptionDialogue(IContactService contactService)
     public void InvalidOption()
     {
         Console.Clear();
-        Console.WriteLine("");
+        Console.WriteLine("---------- ERROR ----------");
         Console.Write("Invalid option. Returning to the main menu.");
         Console.ReadKey();
     }

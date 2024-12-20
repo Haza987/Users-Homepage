@@ -1,5 +1,4 @@
 ﻿using Data.Interfaces;
-using Data.Services;
 using Domain.Models;
 using MainApp.Interfaces;
 
@@ -7,7 +6,7 @@ namespace MainApp.Services;
 
 public class ContactService : IContactService
 {
-    private List<Contact> _contacts;
+    private readonly List<Contact> _contacts;
     private int _nextID;
     private readonly IFileService _fileService;
 
@@ -40,14 +39,28 @@ public class ContactService : IContactService
     }
 
     // How to edit a contact
+    // GitHub Copilot helped with the logic to edit the contact.
     public void EditContact(Contact contact)
     {
-        // No changes made to this method
+        var existingContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+        if (existingContact != null)
+        {
+            existingContact.FirstName = contact.FirstName;
+            existingContact.LastName = contact.LastName;
+            existingContact.Email = contact.Email;
+            existingContact.Phone = contact.Phone;
+            existingContact.Address = contact.Address;
+            existingContact.Postcode = contact.Postcode;
+            existingContact.City = contact.City;
+            _fileService.SaveListToFile(_contacts);
+        }
+        
     }
 
     // How to delete a contact
     public void DeleteContact(Contact contact)
     {
         _contacts.Remove(contact);
+        _fileService.SaveListToFile(_contacts);
     }
 }

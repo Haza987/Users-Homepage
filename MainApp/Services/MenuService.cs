@@ -8,6 +8,7 @@ public class MenuService(IContactService contactService) : IMenuService
     private readonly CreateContactDialogue _createContactDialogue = new(contactService);
     private readonly GetAllContactsDialogue _getAllContactsDialogue = new(contactService);
     private readonly InvalidOptionDialogue _invalidOptionDialogue = new(contactService);
+    private readonly EditContactByIdDialogue _editContactByIdDialogue = new(contactService);
 
 
     public void ShowMenu()
@@ -17,7 +18,7 @@ public class MenuService(IContactService contactService) : IMenuService
             Console.Clear();
             Console.WriteLine("---------- MAIN MENU ----------");
             Console.WriteLine("1. Create a new contact");
-            Console.WriteLine("2. List all contacts");
+            Console.WriteLine("2. View all contacts");
             Console.WriteLine("3. Edit contacts");
             Console.WriteLine("E. Exit");
             Console.WriteLine("------------------------------");
@@ -35,7 +36,7 @@ public class MenuService(IContactService contactService) : IMenuService
                     break;
 
                 case "3":
-                    //EditContact();
+                    _editContactByIdDialogue.EditContactByID();
                     break;
 
                 case "E":

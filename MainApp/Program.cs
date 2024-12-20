@@ -1,4 +1,6 @@
-﻿using MainApp.Interfaces;
+﻿using Data.Interfaces;
+using Data.Services;
+using MainApp.Interfaces;
 using MainApp.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -8,6 +10,7 @@ var host = Host.CreateDefaultBuilder()
     {
         services.AddSingleton<IMenuService, MenuService>();
         services.AddSingleton<IContactService, ContactService>();
+        services.AddSingleton<IFileService, FileService>();
     })
     .Build();
 

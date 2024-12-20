@@ -22,6 +22,8 @@ public class GetAllContactsDialogue(IContactService contactService)
                 Console.WriteLine($"Address: {contact.Address}");
                 Console.WriteLine($"Postcode: {contact.Postcode}");
                 Console.WriteLine($"City: {contact.City}");
+                Console.WriteLine("");
+                Console.WriteLine($"-----------------------------");
                 Console.WriteLine();
             }
         }
