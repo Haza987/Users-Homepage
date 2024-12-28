@@ -4,7 +4,7 @@ namespace MainApp.Interfaces
 {
     public interface IContactService
     {
-        void CreateContact(Contact contact);
+        bool CreateContact(Contact contact);
         IEnumerable<Contact> GetAllContacts();
         Contact? GetContactById(int id);
         void EditContact(Contact contact);

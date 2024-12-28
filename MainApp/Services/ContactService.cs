@@ -19,11 +19,19 @@ public class ContactService : IContactService
     }
 
     // How to create a new contact
-    public void CreateContact(Contact contact)
+    public bool CreateContact(Contact contact)
     {
-        contact.Id = ++_nextID;
-        _contacts.Add(contact);
-        _fileService.SaveListToFile(_contacts);
+        try
+        {
+            contact.Id = ++_nextID;
+            _contacts.Add(contact);
+            _fileService.SaveListToFile(_contacts);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }   
     }
 
     // How to list all contacts
