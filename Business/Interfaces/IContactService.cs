@@ -1,6 +1,6 @@
 ﻿using Domain.Models;
 
-namespace MainApp.Interfaces
+namespace Business.Interfaces
 {
     public interface IContactService
     {

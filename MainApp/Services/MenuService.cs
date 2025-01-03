@@ -1,5 +1,6 @@
 ﻿using MainApp.Dialogues;
 using MainApp.Interfaces;
+using Business.Interfaces;
 
 namespace MainApp.Services;
 

@@ -1,10 +1,10 @@
-﻿using MainApp.Interfaces;
+﻿using Business.Interfaces;
 
 namespace MainApp.Dialogues;
 
 public class EditContactByIdDialogue
 {
-    private IContactService _contactService;
+    private readonly IContactService _contactService;
     private readonly EditOrDeleteContactDialogue _editOrDelete;
 
     public EditContactByIdDialogue(IContactService contactService)

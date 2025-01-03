@@ -1,8 +1,8 @@
 ﻿using Data.Interfaces;
 using Domain.Models;
-using MainApp.Interfaces;
+using Business.Interfaces;
 
-namespace MainApp.Services;
+namespace Business.Services;
 
 public class ContactService : IContactService
 {

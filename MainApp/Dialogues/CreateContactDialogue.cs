@@ -1,6 +1,6 @@
 ﻿using Domain.Factories;
 using Domain.Models;
-using MainApp.Interfaces;
+using Business.Interfaces;
 
 namespace MainApp.Dialogues;
 

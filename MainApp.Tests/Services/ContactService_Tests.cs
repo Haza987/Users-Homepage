@@ -1,10 +1,10 @@
 ﻿using Data.Interfaces;
 using Domain.Models;
-using MainApp.Interfaces;
-using MainApp.Services;
+using Business.Interfaces;
+using Business.Services;
 using Moq;
 
-namespace MainApp.Tests.Services;
+namespace Business.Tests.Services;
 
 public class ContactService_Tests
 {

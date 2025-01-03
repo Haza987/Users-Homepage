@@ -1,4 +1,4 @@
-﻿using MainApp.Interfaces;
+﻿using Business.Interfaces;
 
 namespace MainApp.Dialogues;
 

@@ -1,5 +1,5 @@
 ﻿using Domain.Models;
-using MainApp.Interfaces;
+using Business.Interfaces;
 
 namespace MainApp.Dialogues;
 
@@ -8,8 +8,8 @@ namespace MainApp.Dialogues;
 public class EditOrDeleteContactDialogue(IContactService contactService)
 {
     private readonly IContactService _contactService = contactService;
-    private readonly EditContactDialogue _editContactDialogue = new(contactService);
-    private readonly DeleteContactDialogue _deleteContactDialogue = new(contactService);
+    private readonly EditContactDialogue _editContactDialogue = new EditContactDialogue(contactService);
+    private readonly DeleteContactDialogue _deleteContactDialogue = new DeleteContactDialogue(contactService);
 
     public void EditOrDeleteContact(Contact contact)
     {
@@ -44,10 +44,9 @@ public class EditOrDeleteContactDialogue(IContactService contactService)
                     Console.Clear();
                     Console.WriteLine("---------- ERROR ----------");
                     Console.WriteLine("Invalid choice. Please try again.");
-                    Console.ReadKey();                   
+                    Console.ReadKey();
                     break;
             }
         }
-
     }
 }

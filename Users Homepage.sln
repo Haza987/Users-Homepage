@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain.Tests", "Domain.Tests\Domain.Tests.csproj", "{347BC8C7-54E7-4264-94F5-AACEB83A4654}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainApp.Tests", "MainApp.Tests\MainApp.Tests.csproj", "{80C80D09-DF5B-4F66-A551-31D44ED0CD9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Tests", "MainApp.Tests\Business.Tests.csproj", "{80C80D09-DF5B-4F66-A551-31D44ED0CD9E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
