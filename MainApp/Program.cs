@@ -19,4 +19,4 @@ var host = Host.CreateDefaultBuilder()
 using var scope = host.Services.CreateScope();
 var mainMenu = scope.ServiceProvider.GetService<IMenuService>();
 
-mainMenu?.ShowMenu();
+mainMenu?.ShowMenu(); 

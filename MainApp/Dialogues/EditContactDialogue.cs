@@ -18,7 +18,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.FirstName = firstName;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -29,7 +29,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.LastName = lastName;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -40,7 +40,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.Email = email;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -51,7 +51,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.Phone = phone;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -62,7 +62,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.Address = address;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -73,7 +73,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.Postcode = postcode;
         }
-        Console.ReadKey();
+        
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
@@ -84,7 +84,7 @@ public class EditContactDialogue(IContactService contactService)
         {
             contact.City = city;
         }
-        Console.ReadKey();
+        
 
         _contactService.EditContact(contact);
 
