@@ -28,7 +28,7 @@ public class EditOrDeleteContactDialogue(IContactService contactService)
                 case "1":
                     _editContactDialogue.EditContact(contact);
                     return;
-
+                    
                 case "2":
                     _deleteContactDialogue.DeleteContact(contact);
                     return;

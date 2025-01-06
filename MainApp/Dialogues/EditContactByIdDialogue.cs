@@ -12,6 +12,7 @@ public class EditContactByIdDialogue
         _contactService = contactService;
         _editOrDelete = new EditOrDeleteContactDialogue(contactService);
     }
+
     public void EditContactByID()
     {
         while (true)

@@ -1,4 +1,5 @@
 ﻿using Business.Interfaces;
+using Domain.Models;
 
 namespace MainApp.Dialogues;
 
@@ -7,10 +8,15 @@ public class GetAllContactsDialogue(IContactService contactService)
     private readonly IContactService _contactService = contactService;
 
     public void GetAllContacts()
+    {       
+        var contacts = _contactService.GetAllContacts();
+        DisplayAllContacts(contacts);
+    }
+
+    private void DisplayAllContacts(IEnumerable<Contact> contacts)
     {
         Console.Clear();
         Console.WriteLine("---------- ALL CONTACTS ----------");
-        var contacts = _contactService.GetAllContacts();
         if (contacts.Any())
         {
             foreach (var contact in contacts)
