@@ -18,19 +18,27 @@ public class FileService : IFileService
         _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
     }
 
-    public void SaveListToFile(List<Contact> list)
+    public bool SaveListToFile(List<Contact> list)
     {
         try
         {
             if (!Directory.Exists(_directoryPath))
+            {
                 Directory.CreateDirectory(_directoryPath);
+                return true;
+            }
+            else
+            {
+                var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
+                File.WriteAllText(_filePath, json);
+                return true;
+            }
 
-            var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
-            File.WriteAllText(_filePath, json);
         }
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
+            return false;
         }
     }
 
@@ -39,11 +47,15 @@ public class FileService : IFileService
         try
         {
             if (!File.Exists(_filePath))
-                return [];
-
-            var json = File.ReadAllText(_filePath);
-            var list = JsonSerializer.Deserialize<List<Contact>>(json, _jsonSerializerOptions);
-            return list ?? [];
+            {
+                return new List<Contact>();
+            }
+            else
+            {
+                var json = File.ReadAllText(_filePath);
+                var list = JsonSerializer.Deserialize<List<Contact>>(json, _jsonSerializerOptions);
+                return list ?? new List<Contact>();
+            }
         }
         catch (Exception ex)
         {

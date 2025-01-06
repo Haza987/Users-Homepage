@@ -48,27 +48,43 @@ public class ContactService : IContactService
 
     // How to edit a contact
     // GitHub Copilot helped with the logic to edit the contact.
-    public void EditContact(Contact contact)
+    public bool EditContact(Contact contact)
     {
-        var existingContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
-        if (existingContact != null)
+        try
         {
-            existingContact.FirstName = contact.FirstName;
-            existingContact.LastName = contact.LastName;
-            existingContact.Email = contact.Email;
-            existingContact.Phone = contact.Phone;
-            existingContact.Address = contact.Address;
-            existingContact.Postcode = contact.Postcode;
-            existingContact.City = contact.City;
-            _fileService.SaveListToFile(_contacts);
+            var existingContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+            if (existingContact != null)
+            {
+                existingContact.FirstName = contact.FirstName;
+                existingContact.LastName = contact.LastName;
+                existingContact.Email = contact.Email;
+                existingContact.Phone = contact.Phone;
+                existingContact.Address = contact.Address;
+                existingContact.Postcode = contact.Postcode;
+                existingContact.City = contact.City;
+                _fileService.SaveListToFile(_contacts);
+            }
+            return true;
         }
-        
+        catch
+        {
+            return false;
+        }
+
     }
 
     // How to delete a contact
-    public void DeleteContact(Contact contact)
+    public bool DeleteContact(Contact contact)
     {
-        _contacts.Remove(contact);
-        _fileService.SaveListToFile(_contacts);
+        try
+        {
+            _contacts.Remove(contact);
+            _fileService.SaveListToFile(_contacts);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
     }
 }

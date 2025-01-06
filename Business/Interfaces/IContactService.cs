@@ -7,7 +7,7 @@ namespace Business.Interfaces
         bool CreateContact(Contact contact);
         IEnumerable<Contact> GetAllContacts();
         Contact? GetContactById(int id);
-        void EditContact(Contact contact);
-        void DeleteContact(Contact contact);
+        bool EditContact(Contact contact);
+        bool DeleteContact(Contact contact);
     }
 }

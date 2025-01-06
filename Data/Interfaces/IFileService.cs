@@ -6,6 +6,6 @@ namespace Data.Interfaces
     public interface IFileService
     {
         List<Contact> LoadListFromFile();
-        void SaveListToFile(List<Contact> list);
+        bool SaveListToFile(List<Contact> list);
     }
 }
