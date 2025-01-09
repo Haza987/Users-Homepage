@@ -13,37 +13,39 @@
         <Grid Margin="20">
             <VerticalStackLayout Grid.Row="0">
 
+                <Label Text="Create a new contact" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" Margin="20"/>
+
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800">
-                    <Label Grid.Row="0" Grid.Column="2" Text="Full Name" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Full Name" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.FullName}"/>
                 </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800" Margin="0,20">
-                    <Label Grid.Row="0" Grid.Column="2" Text="Email" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Email" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.Email}" />
                 </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800" Margin="0,20">
-                    <Label Grid.Row="0" Grid.Column="2" Text="Phone number" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Phone number" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.Phone}" />
                 </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800" Margin="0,20">
-                    <Label Grid.Row="0" Grid.Column="2" Text="Street Address" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Street Address" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.Address}" />
                 </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800" Margin="0,20">
-                    <Label Grid.Row="0" Grid.Column="2" Text="Postcode" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="Postcode" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.Postcode}" />
                 </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800" Margin="0,20">
-                    <Label Grid.Row="0" Grid.Column="2" Text="City" Margin="0, 0, 0, 10"/>
+                    <Label Grid.Row="0" Grid.Column="2" Text="City" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.City}" />
                 </Grid>
 
-                <Button Command="{Binding CreateContactCommand}" Text="Create Contact" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
+                <Button Command="{Binding CreateContactCommand}" Text="Create Contact" FontAttributes="Bold" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
 
             </VerticalStackLayout>
         </Grid>
