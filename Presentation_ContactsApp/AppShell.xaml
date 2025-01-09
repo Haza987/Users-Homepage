@@ -8,6 +8,7 @@
     xmlns:views="clr-namespace:Presentation_ContactsApp.MVVM.Views"
     
     Shell.FlyoutBehavior="Flyout"
+    Shell.NavBarIsVisible="False"
     Title="Presentation_ContactsApp">
 
     <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />

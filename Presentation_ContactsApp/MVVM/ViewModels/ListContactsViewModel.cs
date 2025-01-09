@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Presentation_ContactsApp.MVVM.ViewModels
+namespace Presentation_ContactsApp.MVVM.ViewModels;
+
+public partial class ListContactsViewModel : ObservableObject
 {
-    internal class ListContactsViewModel
-    {
-    }
 }

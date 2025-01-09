@@ -6,4 +6,14 @@ public partial class ExitAppView : ContentPage
 	{
 		InitializeComponent();
 	}
+
+    private void ExitApp(object sender, EventArgs e)
+    {
+        Environment.Exit(0);
+    }
+
+    private async void NavToMainMenu(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

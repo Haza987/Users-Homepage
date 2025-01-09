@@ -9,16 +9,16 @@
              x:Class="Presentation_ContactsApp.MainPage">
 
     <ScrollView>
-        <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*" Margin="20">
+        <Grid RowDefinitions="*, auto, auto, auto, *" ColumnDefinitions="*, *, *, *" Margin="20" HorizontalOptions="FillAndExpand">
 
-            <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+            <VerticalStackLayout Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand">
                 <Label Text="Welcome to your contacts app!" FontSize="Header" HorizontalTextAlignment="Center" Margin="30, 20"/>
                 <Label Text="Please select an option" FontSize="Subtitle" HorizontalTextAlignment="Center" Margin="0,20"/>
             </VerticalStackLayout>
 
-            <Button Grid.Row="1" Grid.Column="0" Text="Add a new contact" Clicked="NavToAddContact" Margin="10,20"/>
-            <Button Grid.Row="1" Grid.Column="1" Text="View all contacts" Clicked="NavToViewContacts"  Margin="10,20"/>
-            <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Exit app" Clicked="NavToExitApp" Margin="10,20"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="Add a new contact" Clicked="NavToAddContact" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="View all contacts" Clicked="NavToViewContacts"  Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Exit app" Clicked="NavToExitApp" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="1000"/>
 
         </Grid>
     </ScrollView>

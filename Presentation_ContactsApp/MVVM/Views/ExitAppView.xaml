@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Presentation_ContactsApp.MVVM.Views.ExitAppView"
              Title="ExitAppView">
-    <VerticalStackLayout>
-        <Label 
-            Text="Exit app!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid  VerticalOptions="Center" HorizontalOptions="Center" RowDefinitions="auto, auto" ColumnDefinitions="auto, auto">
+        <Label Text="Are you sure you want to exit the application?" FontSize="20" Grid.Row="0" Grid.ColumnSpan="2" Margin="0, 20"/>
+        <Button Text="Yes" Grid.Row="1" Grid.Column="0" Margin="20,0" Clicked="ExitApp"/>
+        <Button Text="No" Grid.Row="1" Grid.Column="1" Margin="20,0" Clicked="NavToMainMenu"/>
+    </Grid>
+    
+    
 </ContentPage>
