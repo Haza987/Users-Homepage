@@ -12,7 +12,7 @@ public class EditContactDialogue(IContactService contactService)
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
         Console.WriteLine($"Current first name: {contact.FirstName}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine("Enter a new first name or leave the field blank to keep the current first name: ");
         var firstName = Console.ReadLine();
         if (!string.IsNullOrEmpty(firstName))
         {
@@ -23,7 +23,7 @@ public class EditContactDialogue(IContactService contactService)
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
         Console.WriteLine($"Current last name: {contact.LastName}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine("Enter a new last name or leave the field blank to keep the current last name: ");
         var lastName = Console.ReadLine();
         if (!string.IsNullOrEmpty(lastName))
         {
@@ -33,8 +33,8 @@ public class EditContactDialogue(IContactService contactService)
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current Email: {contact.Email}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine($"Current email address: {contact.Email}");
+        Console.WriteLine("Enter a new email address or leave the field blank to keep the current email address: ");
         var email = Console.ReadLine();
         if (!string.IsNullOrEmpty(email))
         {
@@ -44,8 +44,8 @@ public class EditContactDialogue(IContactService contactService)
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current Phone number: {contact.Phone}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine($"Current phone number: {contact.Phone}");
+        Console.WriteLine("Enter a new phone number or leave the field blank to keep the current phone number: ");
         var phone = Console.ReadLine();
         if (!string.IsNullOrEmpty(phone))
         {
@@ -55,8 +55,8 @@ public class EditContactDialogue(IContactService contactService)
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current Address: {contact.Address}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine($"Current street address: {contact.Address}");
+        Console.WriteLine("Enter a new street address or leave the field blank to keep the current street address: ");
         var address = Console.ReadLine();
         if (!string.IsNullOrEmpty(address))
         {
@@ -66,8 +66,8 @@ public class EditContactDialogue(IContactService contactService)
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current Postcode: {contact.Postcode}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine($"Current postcode: {contact.Postcode}");
+        Console.WriteLine("Enter a new postcode or leave the field blank to keep the current postcode: ");
         var postcode = Console.ReadLine();
         if (!string.IsNullOrEmpty(postcode))
         {
@@ -77,8 +77,8 @@ public class EditContactDialogue(IContactService contactService)
 
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current City: {contact.City}");
-        Console.WriteLine("Enter new first name or leave the field blank to keep the current first name: ");
+        Console.WriteLine($"Current city: {contact.City}");
+        Console.WriteLine("Enter a new city or leave the field blank to keep the current city: ");
         var city = Console.ReadLine();
         if (!string.IsNullOrEmpty(city))
         {
@@ -94,9 +94,9 @@ public class EditContactDialogue(IContactService contactService)
         Console.WriteLine($"ID: {contact.Id}");
         Console.WriteLine($"First Name: {contact.FirstName}");
         Console.WriteLine($"Last Name: {contact.LastName}");
-        Console.WriteLine($"Email: {contact.Email}");
-        Console.WriteLine($"Phone: {contact.Phone}");
-        Console.WriteLine($"Address: {contact.Address}");
+        Console.WriteLine($"Email address: {contact.Email}");
+        Console.WriteLine($"Phone number: {contact.Phone}");
+        Console.WriteLine($"Street address: {contact.Address}");
         Console.WriteLine($"Postcode: {contact.Postcode}");
         Console.WriteLine($"City: {contact.City}");
         Console.WriteLine("");
