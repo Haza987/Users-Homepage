@@ -38,7 +38,7 @@ public class EditContactByIdDialogue
                 {
                     Console.Clear();
                     Console.WriteLine("---------- CONTACT FOUND SUCCESSFULLY ----------");
-                    Console.WriteLine($"Contact found: {contact.FirstName} {contact.LastName}");
+                    Console.WriteLine($"Contact found: {contact.FullName}");
                     Console.WriteLine("Is this the contact you are trying to edit? (Y/N)");
                     var option = Console.ReadLine()!;
 

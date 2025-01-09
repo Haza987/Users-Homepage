@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewmodels="clr-namespace:Presentation_ContactsApp.MVVM.ViewModels"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="{x:Type viewmodels:HomeViewModel}"
+             
+             x:Class="Presentation_ContactsApp.MainPage">
+
+    <ScrollView>
+        <Grid RowDefinitions="auto, auto, auto" ColumnDefinitions="*,*" Margin="20">
+
+            <VerticalStackLayout Grid.Row="0" Grid.ColumnSpan="2">
+                <Label Text="Welcome to your contacts app!" FontSize="Header" HorizontalTextAlignment="Center" Margin="30, 20"/>
+                <Label Text="Please select an option" FontSize="Subtitle" HorizontalTextAlignment="Center" Margin="0,20"/>
+            </VerticalStackLayout>
+
+            <Button Grid.Row="1" Grid.Column="0" Text="Add a new contact" Clicked="NavToAddContact" Margin="10,20"/>
+            <Button Grid.Row="1" Grid.Column="1" Text="View all contacts" Clicked="NavToViewContacts"  Margin="10,20"/>
+            <Button Grid.Row="2" Grid.ColumnSpan="2" Text="Exit app" Clicked="NavToExitApp" Margin="10,20"/>
+
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

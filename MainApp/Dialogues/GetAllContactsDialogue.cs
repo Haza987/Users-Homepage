@@ -13,7 +13,7 @@ public class GetAllContactsDialogue(IContactService contactService)
         DisplayAllContacts(contacts);
     }
 
-    private void DisplayAllContacts(IEnumerable<Contact> contacts)
+    private void DisplayAllContacts(IEnumerable<ContactItem> contacts)
     {
         Console.Clear();
         Console.WriteLine("---------- ALL CONTACTS ----------");
@@ -22,7 +22,7 @@ public class GetAllContactsDialogue(IContactService contactService)
             foreach (var contact in contacts)
             {
                 Console.WriteLine($"ID: {contact.Id}");
-                Console.WriteLine($"Name: {contact.FirstName} {contact.LastName}");
+                Console.WriteLine($"Name: {contact.FullName}");
                 Console.WriteLine($"Email: {contact.Email}");
                 Console.WriteLine($"Phone: {contact.Phone}");
                 Console.WriteLine($"Address: {contact.Address}");

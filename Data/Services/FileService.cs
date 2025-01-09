@@ -18,7 +18,7 @@ public class FileService : IFileService
         _jsonSerializerOptions = new JsonSerializerOptions { WriteIndented = true };
     }
 
-    public bool SaveListToFile(List<Contact> list)
+    public bool SaveListToFile(List<ContactItem> list)
     {
         try
         {
@@ -42,25 +42,25 @@ public class FileService : IFileService
         }
     }
 
-    public List<Contact> LoadListFromFile()
+    public List<ContactItem> LoadListFromFile()
     {
         try
         {
             if (!File.Exists(_filePath))
             {
-                return new List<Contact>();
+                return new List<ContactItem>();
             }
             else
             {
                 var json = File.ReadAllText(_filePath);
-                var list = JsonSerializer.Deserialize<List<Contact>>(json, _jsonSerializerOptions);
-                return list ?? new List<Contact>();
+                var list = JsonSerializer.Deserialize<List<ContactItem>>(json, _jsonSerializerOptions);
+                return list ?? new List<ContactItem>();
             }
         }
         catch (Exception ex)
         {
             Debug.WriteLine(ex.Message);
-            return new List<Contact>();
+            return new List<ContactItem>();
         }
     }
 }

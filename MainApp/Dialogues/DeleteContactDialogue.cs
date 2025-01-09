@@ -6,11 +6,11 @@ namespace MainApp.Dialogues;
 public class DeleteContactDialogue(IContactService contactService)
 {
     private readonly IContactService _contactService = contactService;
-    public void DeleteContact(Contact contact)
+    public void DeleteContact(ContactItem contact)
     {
         Console.Clear();
         Console.WriteLine("---------- DELETE CONTACT ----------");
-        Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+        Console.WriteLine($"Contact: {contact.FullName}");
         Console.WriteLine("Are you sure you want to delete this contact? (Y/N)");
         var option = Console.ReadLine()!;
 

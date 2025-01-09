@@ -7,27 +7,16 @@ public class EditContactDialogue(IContactService contactService)
 {
     private IContactService _contactService = contactService;
 
-    public void EditContact(Contact contact)
+    public void EditContact(ContactItem contact)
     {
         Console.Clear();
         Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current first name: {contact.FirstName}");
-        Console.WriteLine("Enter a new first name or leave the field blank to keep the current first name: ");
-        var firstName = Console.ReadLine();
-        if (!string.IsNullOrEmpty(firstName))
+        Console.WriteLine($"Current full name: {contact.FullName}");
+        Console.WriteLine("Enter a new full name or leave the field blank to keep the current full name: ");
+        var FullName = Console.ReadLine();
+        if (!string.IsNullOrEmpty(FullName))
         {
-            contact.FirstName = firstName;
-        }
-        
-
-        Console.Clear();
-        Console.WriteLine("---------- EDIT CONTACT ----------");
-        Console.WriteLine($"Current last name: {contact.LastName}");
-        Console.WriteLine("Enter a new last name or leave the field blank to keep the current last name: ");
-        var lastName = Console.ReadLine();
-        if (!string.IsNullOrEmpty(lastName))
-        {
-            contact.LastName = lastName;
+            contact.FullName = FullName;
         }
         
 
@@ -92,8 +81,7 @@ public class EditContactDialogue(IContactService contactService)
         Console.WriteLine("---------- UPDATED CONTACT ----------");
         Console.WriteLine("Contact updated successfully! Here is the updated contact:");
         Console.WriteLine($"ID: {contact.Id}");
-        Console.WriteLine($"First Name: {contact.FirstName}");
-        Console.WriteLine($"Last Name: {contact.LastName}");
+        Console.WriteLine($"Full Name: {contact.FullName}");
         Console.WriteLine($"Email address: {contact.Email}");
         Console.WriteLine($"Phone number: {contact.Phone}");
         Console.WriteLine($"Street address: {contact.Address}");

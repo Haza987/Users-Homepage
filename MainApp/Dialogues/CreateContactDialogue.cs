@@ -15,28 +15,25 @@ public class CreateContactDialogue(IContactService contactService)
         Console.Clear();
         Console.WriteLine("---------- CREATE A NEW CONTACT ----------");
 
-        Console.Write("Enter your first name: ");
-        contactForm.FirstName = Console.ReadLine()!;
+        Console.Write("Enter the contact's full name: ");
+        contactForm.FullName = Console.ReadLine()!;
 
-        Console.Write("Enter your last name: ");
-        contactForm.LastName = Console.ReadLine()!;
-
-        Console.Write("Enter your email address: ");
+        Console.Write("Enter the contact's email address: ");
         contactForm.Email = Console.ReadLine()!;
 
-        Console.Write("Enter your phone number: ");
+        Console.Write("Enter the contact's phone number: ");
         contactForm.Phone = Console.ReadLine()!;
 
-        Console.Write("Enter your street address: ");
+        Console.Write("Enter the contact's street address: ");
         contactForm.Address = Console.ReadLine()!;
 
-        Console.Write("Enter your postcode: ");
+        Console.Write("Enter the contact's postcode: ");
         contactForm.Postcode = Console.ReadLine()!;
 
-        Console.Write("Enter the city you live in: ");
+        Console.Write("Enter the city the contact lives in: ");
         contactForm.City = Console.ReadLine()!;
 
-        Contact contact = ContactFactory.Create(contactForm);
+        ContactItem contact = ContactFactory.Create(contactForm);
 
         _contactService.CreateContact(contact);
     }

@@ -5,7 +5,7 @@ namespace Data.Interfaces
 {
     public interface IFileService
     {
-        List<Contact> LoadListFromFile();
-        bool SaveListToFile(List<Contact> list);
+        List<ContactItem> LoadListFromFile();
+        bool SaveListToFile(List<ContactItem> list);
     }
 }

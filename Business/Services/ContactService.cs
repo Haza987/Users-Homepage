@@ -6,7 +6,7 @@ namespace Business.Services;
 
 public class ContactService : IContactService
 {
-    private readonly List<Contact> _contacts;
+    public List<ContactItem> Contacts { get; private set; } = [];
     private int _nextID;
     private readonly IFileService _fileService;
 
@@ -14,18 +14,18 @@ public class ContactService : IContactService
     public ContactService(IFileService fileService)
     {
         _fileService = fileService;
-        _contacts = _fileService.LoadListFromFile();
-        _nextID = _contacts.Any() ? _contacts.Max(c => c.Id) : 0;
+        Contacts = _fileService.LoadListFromFile();
+        _nextID = Contacts.Any() ? Contacts.Max(c => c.Id) : 0;
     }
 
     // How to create a new contact
-    public bool CreateContact(Contact contact)
+    public bool CreateContact(ContactItem contact)
     {
         try
         {
             contact.Id = ++_nextID;
-            _contacts.Add(contact);
-            _fileService.SaveListToFile(_contacts);
+            Contacts.Add(contact);
+            _fileService.SaveListToFile(Contacts);
             return true;
         }
         catch
@@ -35,34 +35,33 @@ public class ContactService : IContactService
     }
 
     // How to list all contacts
-    public IEnumerable<Contact> GetAllContacts()
+    public IEnumerable<ContactItem> GetAllContacts()
     {
-        return _contacts;
+        return Contacts;
     }
 
     // How to get the contact to edit
-    public Contact? GetContactById(int id)
+    public ContactItem? GetContactById(int id)
     {
-        return _contacts.FirstOrDefault(contact => contact.Id == id);
+        return Contacts.FirstOrDefault(contact => contact.Id == id);
     }
 
     // How to edit a contact
     // GitHub Copilot helped with the logic to edit the contact.
-    public bool EditContact(Contact contact)
+    public bool EditContact(ContactItem contact)
     {
         try
         {
-            var existingContact = _contacts.FirstOrDefault(c => c.Id == contact.Id);
+            var existingContact = Contacts.FirstOrDefault(c => c.Id == contact.Id);
             if (existingContact != null)
             {
-                existingContact.FirstName = contact.FirstName;
-                existingContact.LastName = contact.LastName;
+                existingContact.FullName = contact.FullName;
                 existingContact.Email = contact.Email;
                 existingContact.Phone = contact.Phone;
                 existingContact.Address = contact.Address;
                 existingContact.Postcode = contact.Postcode;
                 existingContact.City = contact.City;
-                _fileService.SaveListToFile(_contacts);
+                _fileService.SaveListToFile(Contacts);
             }
             return true;
         }
@@ -74,12 +73,12 @@ public class ContactService : IContactService
     }
 
     // How to delete a contact
-    public bool DeleteContact(Contact contact)
+    public bool DeleteContact(ContactItem contact)
     {
         try
         {
-            _contacts.Remove(contact);
-            _fileService.SaveListToFile(_contacts);
+            Contacts.Remove(contact);
+            _fileService.SaveListToFile(Contacts);
             return true;
         }
         catch

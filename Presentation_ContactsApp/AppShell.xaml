@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Presentation_ContactsApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Presentation_ContactsApp"
+    
+    xmlns:views="clr-namespace:Presentation_ContactsApp.MVVM.Views"
+    
+    Shell.FlyoutBehavior="Flyout"
+    Title="Presentation_ContactsApp">
+
+    <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
+    <ShellContent Title="Add Contact" ContentTemplate="{DataTemplate views:AddView}" Route="AddView"/>
+    <ShellContent Title="View Contacts" ContentTemplate="{DataTemplate views:ListContactsView}" Route="ListContactsView"/>
+    <ShellContent Title="Exit App" ContentTemplate="{DataTemplate views:ExitAppView}" Route="ExitAppView"/>
+        
+
+</Shell>

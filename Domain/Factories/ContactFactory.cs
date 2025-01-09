@@ -9,12 +9,11 @@ public class ContactFactory
         return new ContactRegistrationForm();
     }
 
-    public static Contact Create(ContactRegistrationForm form)
+    public static ContactItem Create(ContactRegistrationForm form)
     {
-        return new Contact
+        return new ContactItem
         {
-            FirstName = form.FirstName,
-            LastName = form.LastName,
+            FullName = form.FullName,
             Email = form.Email,
             Phone = form.Phone,
             Address = form.Address,

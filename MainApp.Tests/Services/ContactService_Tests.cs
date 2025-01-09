@@ -16,7 +16,7 @@ public class ContactService_Tests
         var fileServiceMock = new Mock<IFileService>();
         fileServiceMock
             .Setup(fs => fs.LoadListFromFile())
-            .Returns(new List<Contact>());
+            .Returns(new List<ContactItem>());
 
         _contactServiceMock = new Mock<IContactService>();
         _contactService = new ContactService(fileServiceMock.Object);
@@ -27,10 +27,9 @@ public class ContactService_Tests
     public void CreateContact_ShouldReturnTrue_WhenContactIsCreated()
     {
         // Arrange
-        var contact = new Contact
+        var contact = new ContactItem
         {
-            FirstName = "John",
-            LastName = "Doe",
+            FullName = "John Doe",
             Email = "JohnDoe@Domain.com",
             Phone = "+46712345678",
             Address = "Väg 1",
@@ -55,12 +54,11 @@ public class ContactService_Tests
         // Arrange - GitHub Copilot helped me with the arrange section of this test.
 
         // This creates a new list of contacts
-        var list = new List<Contact>
+        var list = new List<ContactItem>
         {
-            new Contact
+            new ContactItem
             {
-                FirstName = "John",
-                LastName = "Doe",
+                FullName = "John Doe",
                 Email = "JohnDoe@Domain.com",
                 Phone = "+46712345678",
                 Address = "Väg 1",
@@ -85,11 +83,10 @@ public class ContactService_Tests
     public void GetContactById_ShouldReturnContact_WhenIdIsSelected()
     {
         // Arrange
-        var contact = new Contact
+        var contact = new ContactItem
         {
             Id = 1,
-            FirstName = "John",
-            LastName = "Doe",
+            FullName = "John Doe",
             Email = "JohnDoe@Domain.com",
             Phone = "+46712345678",
             Address = "Väg 1",
@@ -114,10 +111,9 @@ public class ContactService_Tests
     {
         // Arrange
 
-        var originalContact = new Contact
+        var originalContact = new ContactItem
         {
-            FirstName = "John",
-            LastName = "Doe",
+            FullName = "John Doe",
             Email = "JohnDoe@Domain.com",
             Phone = "+46712345678",
             Address = "Väg 1",
@@ -125,10 +121,9 @@ public class ContactService_Tests
             City = "Stockholm"
         };
 
-        var updatedContact = new Contact
+        var updatedContact = new ContactItem
         {
-            FirstName = "Harry",
-            LastName = "Holmes",
+            FullName = "Harry Holmes",
             Email = "HarryHolmes@Domain.com",
             Phone = "+46787654321",
             Address = "Väg 2",
@@ -137,7 +132,7 @@ public class ContactService_Tests
         };
 
         // This creates a new list of contacts
-        var contacts = new List<Contact> { originalContact };
+        var contacts = new List<ContactItem> { originalContact };
 
         // This sets up the LoadListFromFile method to return the list of contacts
         var fileServiceMock = new Mock<IFileService>();
@@ -155,8 +150,7 @@ public class ContactService_Tests
         // Assert
         Assert.True(result);
         // This checks that the contact has been updated
-        Assert.Equal(updatedContact.FirstName, contactService.GetContactById(originalContact.Id)!.FirstName);
-        Assert.Equal(updatedContact.LastName, contactService.GetContactById(originalContact.Id)!.LastName);
+        Assert.Equal(updatedContact.FullName, contactService.GetContactById(originalContact.Id)!.FullName);
         Assert.Equal(updatedContact.Email, contactService.GetContactById(originalContact.Id)!.Email);
         Assert.Equal(updatedContact.Phone, contactService.GetContactById(originalContact.Id)!.Phone);
         Assert.Equal(updatedContact.Address, contactService.GetContactById(originalContact.Id)!.Address);
@@ -168,10 +162,9 @@ public class ContactService_Tests
     public void DeleteContact_ShouldReturnTrue_WhenContactIsDeleted()
     {
         // Arrange
-        var contact = new Contact
+        var contact = new ContactItem
         {
-            FirstName = "John",
-            LastName = "Doe",
+            FullName = "John Doe",
             Email = "JohnDoe@Domain.com",
             Phone = "+46712345678",
             Address = "Väg 1",
@@ -179,7 +172,7 @@ public class ContactService_Tests
             City = "Stockholm"
         };
 
-        var contacts = new List<Contact>{ contact };
+        var contacts = new List<ContactItem>{ contact };
 
         var fileServiceMock = new Mock<IFileService>();
         fileServiceMock

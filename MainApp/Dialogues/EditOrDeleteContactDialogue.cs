@@ -11,13 +11,13 @@ public class EditOrDeleteContactDialogue(IContactService contactService)
     private readonly EditContactDialogue _editContactDialogue = new EditContactDialogue(contactService);
     private readonly DeleteContactDialogue _deleteContactDialogue = new DeleteContactDialogue(contactService);
 
-    public void EditOrDeleteContact(Contact contact)
+    public void EditOrDeleteContact(ContactItem contact)
     {
         while (true)
         {
             Console.Clear();
             Console.WriteLine("---------- EDIT OR DELETE CONTACT ----------");
-            Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
+            Console.WriteLine($"Contact: {contact.FullName}");
             Console.WriteLine("1. Edit Contact");
             Console.WriteLine("2. Delete Contact");
             Console.WriteLine("3. Go Back");

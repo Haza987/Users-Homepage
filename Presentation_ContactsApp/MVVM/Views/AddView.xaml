@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewmodels="clr-namespace:Presentation_ContactsApp.MVVM.ViewModels"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="{x:Type viewmodels:HomeViewModel}"
+             
+             x:Class="Presentation_ContactsApp.MVVM.Views.AddView"
+             Title="Create a contact">
+
+    <ScrollView>
+        <Grid RowDefinitions="auto, *" Margin="20">
+            <VerticalStackLayout Grid.Row="0">
+                <Label Text="Full Name" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.FullName}" Margin="30, 0"/>
+
+                <Label Text="Email" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.Email}" Margin="30, 0"/>
+
+                <Label Text="Phone number" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.Phone}" Margin="30, 0"/>
+
+                <Label Text="Street Address" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.Address}" Margin="30, 0"/>
+
+                <Label Text="Postcode" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.Postcode}" Margin="30, 0"/>
+
+                <Label Text="City" Margin="30, 20, 0, 10"/>
+                <Entry Text="{Binding RegistrationForm.City}" Margin="30, 0"/>
+
+                <Button Command="{Binding CreateContactCommand}" Text="Create Contact" Margin="30, 40" Padding="0,10"/>
+
+            </VerticalStackLayout>
+        </Grid>
+    </ScrollView>
+    
+</ContentPage>

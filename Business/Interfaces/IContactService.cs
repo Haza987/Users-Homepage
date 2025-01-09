@@ -4,10 +4,10 @@ namespace Business.Interfaces
 {
     public interface IContactService
     {
-        bool CreateContact(Contact contact);
-        IEnumerable<Contact> GetAllContacts();
-        Contact? GetContactById(int id);
-        bool EditContact(Contact contact);
-        bool DeleteContact(Contact contact);
+        bool CreateContact(ContactItem contact);
+        IEnumerable<ContactItem> GetAllContacts();
+        ContactItem? GetContactById(int id);
+        bool EditContact(ContactItem contact);
+        bool DeleteContact(ContactItem contact);
     }
 }
