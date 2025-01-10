@@ -1,12 +1,41 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             
+             xmlns:viewModels="clr-namespace:Presentation_ContactsApp.MVVM.ViewModels"
+             xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
+             x:DataType="{x:Type viewModels:ListContactsViewModel}"
+             
              x:Class="Presentation_ContactsApp.MVVM.Views.ListContactsView"
              Title="ListContactsView">
-    <VerticalStackLayout>
-        <Label 
-            Text="All contacts!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+
+    <Grid RowDefinitions="auto,*" Margin="20">
+
+        <Label Text="Contacts" FontSize="Large" Grid.Row="0" HorizontalOptions="Center" />
+
+        <CollectionView Grid.Row="1" ItemsSource="{Binding ContactItems}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="models:ContactItem">
+                    <Border>
+                        <Grid ColumnDefinitions="*, auto">
+                            <Label Grid.Column="0" Text="{Binding Id}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding FullName}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Email}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Phone}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Address}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding Postcode}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+                            <Label Grid.Column="0" Text="{Binding City}" VerticalOptions="Center" VerticalTextAlignment="Center"/>
+
+                            <HorizontalStackLayout Grid.Column="1">
+                                <Button Text="Edit" Margin="5,0,0,0"/>
+                                <Button Text="Delete" Margin="5,0,0,0"/>
+                            </HorizontalStackLayout>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
 </ContentPage>

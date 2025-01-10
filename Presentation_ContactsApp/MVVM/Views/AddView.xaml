@@ -4,7 +4,7 @@
              
              xmlns:viewmodels="clr-namespace:Presentation_ContactsApp.MVVM.ViewModels"
              xmlns:models="clr-namespace:Domain.Models;assembly=Domain"
-             x:DataType="{x:Type viewmodels:HomeViewModel}"
+             x:DataType="{x:Type viewmodels:AddViewModel}"
              
              x:Class="Presentation_ContactsApp.MVVM.Views.AddView"
              Title="Create a contact">
@@ -45,7 +45,7 @@
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding RegistrationForm.City}" />
                 </Grid>
 
-                <Button Command="{Binding CreateContactCommand}" Text="Create Contact" FontAttributes="Bold" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
+                <Button Text="Create Contact" Command="{Binding BtnCreateContactCommand}" FontAttributes="Bold" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
 
             </VerticalStackLayout>
         </Grid>

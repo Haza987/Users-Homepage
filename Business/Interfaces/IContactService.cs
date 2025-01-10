@@ -4,6 +4,7 @@ namespace Business.Interfaces
 {
     public interface IContactService
     {
+        event EventHandler ContactItemsUpdated;
         bool CreateContact(ContactItem contact);
         IEnumerable<ContactItem> GetAllContacts();
         ContactItem? GetContactById(int id);

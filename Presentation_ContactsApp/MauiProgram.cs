@@ -2,6 +2,9 @@
 using Business.Services;
 using Presentation_ContactsApp.MVVM.ViewModels;
 using Microsoft.Extensions.Logging;
+using Presentation_ContactsApp.MVVM.Views;
+using Data.Interfaces;
+using Data.Services;
 
 namespace Presentation_ContactsApp
 {
@@ -18,10 +21,21 @@ namespace Presentation_ContactsApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
             builder.Services.AddSingleton<IContactService, ContactService>();
+            builder.Services.AddSingleton<IFileService, FileService>();
+
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddSingleton<MainPage>();
+
+            builder.Services.AddSingleton<AddViewModel>();
+            builder.Services.AddSingleton<AddView>();
+
+            builder.Services.AddSingleton<ListContactsViewModel>();
+            builder.Services.AddSingleton<ListContactsView>();
+
+            builder.Services.AddSingleton<ExitAppViewModel>();
+            builder.Services.AddSingleton<ExitAppView>();
+#if DEBUG
 
             builder.Logging.AddDebug();
 #endif
