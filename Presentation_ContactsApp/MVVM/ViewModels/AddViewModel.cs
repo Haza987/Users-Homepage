@@ -41,12 +41,19 @@ public partial class AddViewModel : ObservableObject
     [ObservableProperty]
     public bool _isContactCreated;
 
+    public void ResetForm()
+    {
+        RegistrationForm = new ContactItem();
+    }
+
     //GitHub Copilot helped me with this Relay Command so that I could display a message without calling the create method twice.
     [RelayCommand]
     public async Task BtnCreateContact()
     {
         Debug.WriteLine("BtnCreateContact called");
         IsContactCreated = false;
+
+        
 
         Debug.WriteLine("Creating contact...");
         if (_registrationForm != null && !string.IsNullOrWhiteSpace(_registrationForm.FullName))
@@ -63,7 +70,8 @@ public partial class AddViewModel : ObservableObject
                 IsContactCreated = true;
                 Debug.WriteLine("Contact list saved successfully");
                 await Shell.Current.DisplayAlert("Success", "Contact created successfully", "OK");
-                RegistrationForm = new ContactItem();
+
+                await Shell.Current.GoToAsync("///MainPage");
             }
             else
             {

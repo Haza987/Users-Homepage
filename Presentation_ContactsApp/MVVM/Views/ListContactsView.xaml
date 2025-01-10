@@ -18,9 +18,14 @@
         </Grid>
 
         <CollectionView Grid.Row="1" ItemsSource="{Binding ContactItems}">
+            
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="10"/>
             </CollectionView.ItemsLayout>
+
+            <CollectionView.EmptyView>
+                <Label Text="No contacts availble." HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="50"/>
+            </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:ContactItem">
@@ -50,7 +55,7 @@
 
                             <HorizontalStackLayout Grid.RowSpan="2" Grid.Row="1" Grid.Column="6">
                                 <Button Text="Edit" FontSize="Small"/>
-                                <Button Text="Delete" Margin="10,0,0,0" FontSize="Small"/>
+                                <Button Text="Delete" CommandParameter="{Binding .}" Command="{Binding Path=RemoveCommand, Source={RelativeSource AncestorType={x:Type viewModels:ListContactsViewModel}}}" Margin="10,0,0,0" FontSize="Small"/>
                             </HorizontalStackLayout>
                         </Grid>
                     </Border>

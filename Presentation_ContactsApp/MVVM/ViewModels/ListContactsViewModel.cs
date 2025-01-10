@@ -38,10 +38,19 @@ public partial class ListContactsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private void Remove(ContactItem item)
+    private async Task Remove(ContactItem item)
     {
-        _contactService.DeleteContact(item);
+        bool confirm = await Shell.Current.DisplayAlert("Delete", $"Are you sure you want to delete {item.FullName}?", "Yes", "No");
+        if (confirm)
+        {
+            _contactService.DeleteContact(item);
+            contactItems = new ObservableCollection<ContactItem>(_contactService.GetAllContacts());
+            await Shell.Current.DisplayAlert("Successfully Deleted", "Contact was successfully deleted!", "Ok");
+        }
+        else
+        {
+            await Shell.Current.DisplayAlert("Delete Cancelled", "Contact was not deleted!", "Ok");
+        };
 
-        contactItems = new ObservableCollection<ContactItem>(_contactService.GetAllContacts());
     }
 }

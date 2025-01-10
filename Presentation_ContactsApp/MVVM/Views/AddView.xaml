@@ -13,7 +13,10 @@
         <Grid Margin="20">
             <VerticalStackLayout Grid.Row="0">
 
-                <Label Text="Create a new contact" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" Margin="20"/>
+                <Grid Grid.Row="0" ColumnDefinitions="*, *, *" Margin="20">
+                    <Button Grid.Column="0" Text="Home" Clicked="NavToHomeView" WidthRequest="70" HeightRequest="70" HorizontalOptions="Start"/>
+                    <Label Grid.Column="1" Text="Create a new contact" HorizontalTextAlignment="Center" FontSize="Large" FontAttributes="Bold" Margin="20"/>
+                </Grid>
 
                 <Grid RowDefinitions="*, auto" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800">
                     <Label Grid.Row="0" Grid.Column="2" Text="Full Name" FontSize="Small" FontAttributes="Bold" Margin="0, 0, 0, 10"/>
