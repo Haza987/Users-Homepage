@@ -9,4 +9,9 @@ public partial class ListContactsView : ContentPage
 		InitializeComponent();
         BindingContext = viewModel;
     }
+
+    private async void NavToHomeView(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }
