@@ -24,7 +24,7 @@
             </CollectionView.ItemsLayout>
 
             <CollectionView.EmptyView>
-                <Label Text="No contacts availble." HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="50"/>
+                <Label Text="No contacts available." HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" Padding="50"/>
             </CollectionView.EmptyView>
 
             <CollectionView.ItemTemplate>

@@ -30,8 +30,8 @@ namespace Presentation_ContactsApp
             builder.Services.AddSingleton<AddViewModel>();
             builder.Services.AddSingleton<AddView>();
 
-            builder.Services.AddSingleton<ListContactsViewModel>();
-            builder.Services.AddSingleton<ListContactsView>();
+            builder.Services.AddTransient<ListContactsViewModel>();
+            builder.Services.AddTransient<ListContactsView>();
 
             builder.Services.AddSingleton<ExitAppViewModel>();
             builder.Services.AddSingleton<ExitAppView>();

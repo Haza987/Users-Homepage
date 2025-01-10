@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Domain.Models;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 
 namespace Presentation_ContactsApp.MVVM.ViewModels;
 
@@ -19,12 +20,13 @@ public partial class ListContactsViewModel : ObservableObject
 
         _contactService.ContactItemsUpdated += (sender, e) =>
         {
-            ContactItems = new ObservableCollection<ContactItem>(_contactService.GetAllContacts());
+            Debug.WriteLine("ContactItemsUpdated event called");
+            UpdateContactList();
         };
     }
 
     [ObservableProperty]
-    private ObservableCollection<ContactItem> contactItems = [];
+    private ObservableCollection<ContactItem> contactItems;
 
     [RelayCommand]
     private async Task NavToEdit(ContactItem item)
@@ -44,13 +46,34 @@ public partial class ListContactsViewModel : ObservableObject
         if (confirm)
         {
             _contactService.DeleteContact(item);
-            contactItems = new ObservableCollection<ContactItem>(_contactService.GetAllContacts());
+            UpdateContactList();
             await Shell.Current.DisplayAlert("Successfully Deleted", "Contact was successfully deleted!", "Ok");
         }
         else
         {
             await Shell.Current.DisplayAlert("Delete Cancelled", "Contact was not deleted!", "Ok");
-        };
+        }
+    }
 
+    public void UpdateContactList()
+    {
+        Debug.WriteLine("UpdateContactList called");
+        var updatedContacts = _contactService.GetAllContacts().ToList();
+        Debug.WriteLine($"Number of contacts: {updatedContacts.Count}");
+        if (ContactItems == null)
+        {
+            Debug.WriteLine("ContactItems is null, initializing");
+            ContactItems = new ObservableCollection<ContactItem>(updatedContacts);
+        }
+        else
+        {
+            Debug.WriteLine("Clearing and updating ContactItems");
+            ContactItems.Clear();
+            foreach (var contact in updatedContacts)
+            {
+                ContactItems.Add(contact);
+            }
+        }
+        OnPropertyChanged(nameof(ContactItems));
     }
 }

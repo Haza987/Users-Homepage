@@ -6,14 +6,12 @@ namespace Presentation_ContactsApp.MVVM.Views;
 
 public partial class AddView : ContentPage
 {
-    public AddView()
-	{
-		InitializeComponent();
-        var fileService = new FileService();
-        BindingContext = new AddViewModel(new ContactService(fileService), new FileService());
+    public AddView(AddViewModel viewModel)
+    {
+        InitializeComponent();
+        BindingContext = viewModel;
     }
 
-    // GitHub Copilot helped me with this code to reset the form when opening the page.
     protected override void OnAppearing()
     {
         base.OnAppearing();
