@@ -11,6 +11,7 @@ namespace Presentation_ContactsApp
             Routing.RegisterRoute(nameof(MainPage), typeof(MainPage));
             Routing.RegisterRoute(nameof(AddView), typeof(AddView));
             Routing.RegisterRoute(nameof(ListContactsView), typeof(ListContactsView));
+            Routing.RegisterRoute(nameof(EditView), typeof(EditView));
             Routing.RegisterRoute(nameof(ExitAppView), typeof(ExitAppView));
         }
     }

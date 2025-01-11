@@ -56,28 +56,48 @@ public partial class AddViewModel : ObservableObject
         
 
         Debug.WriteLine("Creating contact...");
-        if (_registrationForm != null && !string.IsNullOrWhiteSpace(_registrationForm.FullName))
+        if (_registrationForm != null)
         {
-            var result = _contactService.CreateContact(_registrationForm);
-            if (result)
+            Debug.WriteLine("Registration form is not null");
+            if (!string.IsNullOrWhiteSpace(_registrationForm.FullName) &&
+            !string.IsNullOrWhiteSpace(_registrationForm.Email) &&
+            !string.IsNullOrWhiteSpace(_registrationForm.Phone) &&
+            !string.IsNullOrWhiteSpace(_registrationForm.Address) &&
+            !string.IsNullOrWhiteSpace(_registrationForm.Postcode) &&
+            !string.IsNullOrWhiteSpace(_registrationForm.City))
             {
-                Debug.WriteLine("Contact created successfully");
-                AddContactToList(_registrationForm);
+                Debug.WriteLine("All required fields are filled");
+                var result = _contactService.CreateContact(_registrationForm);
+                if (result)
+                {
+                    Debug.WriteLine("Contact created successfully");
+                    AddContactToList(_registrationForm);
 
-                Debug.WriteLine("Saving contact list to file...");
-                _fileService.SaveListToFile(_contactList.ToList());
+                    Debug.WriteLine("Saving contact list to file...");
+                    _fileService.SaveListToFile(_contactList.ToList());
 
-                IsContactCreated = true;
-                Debug.WriteLine("Contact list saved successfully");
-                await Shell.Current.DisplayAlert("Success", "Contact created successfully", "OK");
+                    IsContactCreated = true;
+                    Debug.WriteLine("Contact list saved successfully");
+                    await Shell.Current.DisplayAlert("Success", "Contact created successfully", "OK");
 
-                await Shell.Current.GoToAsync("///MainPage");
+                    await Shell.Current.GoToAsync("///MainPage");
+                }
+                else
+                {
+                    Debug.WriteLine("Failed to create contact");
+                    await Shell.Current.DisplayAlert("Error", "Contact not created", "OK");
+                }
             }
             else
             {
-                Debug.WriteLine("Failed to save contact list to file");
-                await Shell.Current.DisplayAlert("Error", "Contact not created", "OK");
+                Debug.WriteLine("One or more required create fields are empty");
+                await Shell.Current.DisplayAlert("Error", "Please fill in all required fields", "OK");
             }
+        }
+        else
+        {
+            Debug.WriteLine("Registration form is null");
+            await Shell.Current.DisplayAlert("Error", "Invalid contact information", "OK");
         }
     }
 

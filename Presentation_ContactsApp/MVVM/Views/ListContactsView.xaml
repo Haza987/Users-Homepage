@@ -54,7 +54,7 @@
                             <Label Grid.Row="3" Text=" "/>
 
                             <HorizontalStackLayout Grid.RowSpan="2" Grid.Row="1" Grid.Column="6">
-                                <Button Text="Edit" FontSize="Small"/>
+                                <Button Text="Edit" CommandParameter="{Binding .}" Command="{Binding Path=NavToEditCommand, Source={RelativeSource AncestorType={x:Type viewModels:ListContactsViewModel}}}" Margin="10,0,0,0" FontSize="Small"/>
                                 <Button Text="Delete" CommandParameter="{Binding .}" Command="{Binding Path=RemoveCommand, Source={RelativeSource AncestorType={x:Type viewModels:ListContactsViewModel}}}" Margin="10,0,0,0" FontSize="Small"/>
                             </HorizontalStackLayout>
                         </Grid>

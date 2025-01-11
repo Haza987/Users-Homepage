@@ -33,6 +33,9 @@ namespace Presentation_ContactsApp
             builder.Services.AddTransient<ListContactsViewModel>();
             builder.Services.AddTransient<ListContactsView>();
 
+            builder.Services.AddTransient<EditViewModel>();
+            builder.Services.AddTransient<EditView>();
+
             builder.Services.AddSingleton<ExitAppViewModel>();
             builder.Services.AddSingleton<ExitAppView>();
 #if DEBUG

@@ -76,6 +76,9 @@
 	  <MauiXaml Update="MVVM\Views\AddView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="MVVM\Views\EditView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="MVVM\Views\ExitAppView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

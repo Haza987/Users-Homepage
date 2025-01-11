@@ -14,6 +14,7 @@
     <ShellContent Title="Home" ContentTemplate="{DataTemplate local:MainPage}" Route="MainPage" />
     <ShellContent Title="Add Contact" ContentTemplate="{DataTemplate views:AddView}" Route="AddView"/>
     <ShellContent Title="View Contacts" ContentTemplate="{DataTemplate views:ListContactsView}" Route="ListContactsView"/>
+    <ShellContent Title="Edit Contact" ContentTemplate="{DataTemplate views:EditView}" Route="EditView"/>
     <ShellContent Title="Exit App" ContentTemplate="{DataTemplate views:ExitAppView}" Route="ExitAppView"/>
         
 
