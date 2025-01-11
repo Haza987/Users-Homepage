@@ -36,6 +36,7 @@ public partial class ListContactsViewModel : ObservableObject
             {"Contact", item}
         };
 
+        Debug.WriteLine($"Navigating to EditView with Contact: {item.FullName}");
         await Shell.Current.GoToAsync("EditView", parameters);
     }
 

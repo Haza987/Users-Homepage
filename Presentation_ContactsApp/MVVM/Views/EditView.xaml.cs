@@ -9,4 +9,9 @@ public partial class EditView : ContentPage
 		InitializeComponent();
         BindingContext = viewModel;
     }
+
+    private async void NavToHomeView(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync("///MainPage");
+    }
 }

@@ -7,7 +7,7 @@
     
     xmlns:views="clr-namespace:Presentation_ContactsApp.MVVM.Views"
     
-    Shell.FlyoutBehavior="Flyout"
+    Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
     Title="Presentation_ContactsApp">
 

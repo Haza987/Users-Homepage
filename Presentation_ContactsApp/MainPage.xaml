@@ -16,9 +16,9 @@
                 <Label Text="Please select an option" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,20"/>
             </VerticalStackLayout>
 
-            <Button Grid.Row="2" Grid.Column="1" Text="Add a new contact" FontAttributes="Bold" Clicked="NavToAddContact" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
-            <Button Grid.Row="2" Grid.Column="2" Text="View all contacts" FontAttributes="Bold" Clicked="NavToViewContacts"  Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
-            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Exit app" FontAttributes="Bold" Clicked="NavToExitApp" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="1000"/>
+            <Button Grid.Row="2" Grid.Column="1" Text="Add a new contact" Clicked="NavToAddContact" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
+            <Button Grid.Row="2" Grid.Column="2" Text="View all contacts" Clicked="NavToViewContacts"  Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="500"/>
+            <Button Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Text="Exit app" Clicked="NavToExitApp" Margin="10,20" HorizontalOptions="FillAndExpand" MaximumWidthRequest="1000"/>
 
         </Grid>
     </ScrollView>

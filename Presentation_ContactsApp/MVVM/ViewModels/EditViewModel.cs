@@ -35,10 +35,11 @@ public partial class EditViewModel : ObservableObject, IQueryAttributable
 
             if (result)
             {
+                Debug.WriteLine("Contact updated successfully");
+                await Shell.Current.DisplayAlert("Success", "Contact updated successfully, returning to homepage", "OK");
 
-            await Shell.Current.DisplayAlert("Success", "Contact updated successfully", "OK");
 
-            await Shell.Current.GoToAsync("///ListContactsView");
+                await Shell.Current.GoToAsync("///MainPage");
             }
             else
             {
