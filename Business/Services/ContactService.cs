@@ -17,6 +17,12 @@ public class ContactService : IContactService
     {
         Debug.WriteLine("ContactService called");
         _fileService = fileService;
+        LoadContacts();
+    }
+
+    // GitHub Copilot suggested this change to adhere to S in SOLID
+    private void LoadContacts()
+    {
         Contacts = _fileService.LoadListFromFile();
         _nextID = Contacts.Any() ? Contacts.Max(c => c.Id) : 0;
     }

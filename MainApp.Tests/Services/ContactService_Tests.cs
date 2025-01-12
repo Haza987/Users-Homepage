@@ -189,4 +189,27 @@ public class ContactService_Tests
         //GitHub Copilot suggested DoesNotContain.
         Assert.DoesNotContain(contact, contactService.GetAllContacts());
     }
+
+    [Fact]
+    public void LoadContacts_ShouldLoadContactsFromFile()
+    {
+        // Arrange
+        var mockFileService = new Mock<IFileService>();
+        var contacts = new List<ContactItem>
+        {
+            new ContactItem { Id = 1, FullName = "John Doe" },
+            new ContactItem { Id = 2, FullName = "Jane Smith" }
+        };
+        mockFileService.Setup(fs => fs.LoadListFromFile()).Returns(contacts);
+
+        var contactService = new ContactService(mockFileService.Object);
+
+        // Act
+        contactService.GetAllContacts(); // This will trigger the LoadContacts method
+
+        // Assert
+        Assert.Equal(contacts, contactService.GetAllContacts());
+        Assert.Equal(2, contactService.GetAllContacts().Count());
+        Assert.Equal(2, contactService.GetAllContacts().Max(c => c.Id));
+    }
 }
