@@ -41,7 +41,7 @@ public partial class ListContactsViewModel : ObservableObject
     }
 
     [RelayCommand]
-    private async Task Remove(ContactItem item)
+    public async Task Remove(ContactItem item)
     {
         bool confirm = await Shell.Current.DisplayAlert("Delete", $"Are you sure you want to delete {item.FullName}?", "Yes", "No");
         if (confirm)

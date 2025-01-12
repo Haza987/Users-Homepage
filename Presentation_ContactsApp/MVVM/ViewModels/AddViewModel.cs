@@ -28,7 +28,7 @@ public partial class AddViewModel : ObservableObject
         }
         else
         {
-            _contactList = new ObservableCollection<ContactItem>();
+            _contactList = [];
         }
     }
 
@@ -36,14 +36,14 @@ public partial class AddViewModel : ObservableObject
     private ContactItem _registrationForm = new();
 
     [ObservableProperty]
-    public ObservableCollection<ContactItem> _contactList = new();
+    public ObservableCollection<ContactItem> _contactList = [];
 
     [ObservableProperty]
     public bool _isContactCreated;
 
     public void ResetForm()
     {
-        RegistrationForm = new ContactItem();
+        _registrationForm = new ContactItem();
     }
 
     //GitHub Copilot helped me with this Relay Command so that I could display a message without calling the create method twice.
@@ -84,6 +84,7 @@ public partial class AddViewModel : ObservableObject
                 }
                 else
                 {
+                    IsContactCreated = false;
                     Debug.WriteLine("Failed to create contact");
                     await Shell.Current.DisplayAlert("Error", "Contact not created", "OK");
                 }
@@ -101,9 +102,9 @@ public partial class AddViewModel : ObservableObject
         }
     }
 
-    private void AddContactToList(ContactItem contact)
+    public void AddContactToList(ContactItem contact)
     {
         Debug.WriteLine("AddContactToList called");
-        _contactList.Add(contact);
+        ContactList.Add(contact);
     }
 }

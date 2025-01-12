@@ -16,10 +16,10 @@ public partial class EditViewModel : ObservableObject, IQueryAttributable
     }
 
     [ObservableProperty]
-    private ContactItem item = new();
+    public ContactItem item = new();
 
     [RelayCommand]
-    private async Task Btn_Update()
+    public async Task<bool> Btn_Update()
     {
        if(Item != null &&
             !string.IsNullOrWhiteSpace(Item.FullName) &&
@@ -40,16 +40,19 @@ public partial class EditViewModel : ObservableObject, IQueryAttributable
 
 
                 await Shell.Current.GoToAsync("///MainPage");
+                return true;
             }
             else
             {
                 await Shell.Current.DisplayAlert("Error", "Please fill out all forms", "OK");
+                return false;
             }
         }
         else
         {
             Debug.WriteLine("One or more required update fields are empty");
             await Shell.Current.DisplayAlert("Error", "Please fill in all required fields", "OK");
+            return false;
         }
     }
 
