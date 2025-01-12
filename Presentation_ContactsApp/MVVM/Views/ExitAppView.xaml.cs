@@ -12,7 +12,7 @@ public partial class ExitAppView : ContentPage
         Environment.Exit(0);
     }
 
-    private async void NavToMainMenu(object sender, EventArgs e)
+    private async void NavToMainPage(object sender, EventArgs e)
     {
         await Shell.Current.GoToAsync("///MainPage");
     }
