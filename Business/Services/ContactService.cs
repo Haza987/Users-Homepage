@@ -15,7 +15,6 @@ public class ContactService : IContactService
     // GitHub Copilot suggested this change to adhere to S in SOLID
     public ContactService(IFileService fileService)
     {
-        Debug.WriteLine("ContactService called");
         _fileService = fileService;
         LoadContacts();
     }
@@ -32,7 +31,6 @@ public class ContactService : IContactService
     {
         try
         {
-            Debug.WriteLine("CreateContact called");
             contact.Id = ++_nextID;
             Contacts.Add(contact);
             _fileService.SaveListToFile(Contacts);
@@ -48,14 +46,12 @@ public class ContactService : IContactService
     // How to list all contacts
     public IEnumerable<ContactItem> GetAllContacts()
     {
-        Debug.WriteLine("GetAllContacts called");
         return Contacts;
     }
 
     // How to get the contact to edit
     public ContactItem? GetContactById(int id)
     {
-        Debug.WriteLine("GetContactById called");
         return Contacts.FirstOrDefault(contact => contact.Id == id);
     }
 
@@ -68,7 +64,6 @@ public class ContactService : IContactService
             var existingContact = Contacts.FirstOrDefault(c => c.Id == contact.Id);
             if (existingContact != null)
             {
-                Debug.WriteLine("EditContact called");
                 existingContact.FullName = contact.FullName;
                 existingContact.Email = contact.Email;
                 existingContact.Phone = contact.Phone;
@@ -82,7 +77,6 @@ public class ContactService : IContactService
         }
         catch
         {
-            Debug.WriteLine("EditContact called");
             return false;
         }
 
@@ -93,7 +87,6 @@ public class ContactService : IContactService
     {
         try
         {
-            Debug.WriteLine("DeleteContact called");
             Contacts.Remove(contact);
             _fileService.SaveListToFile(Contacts);
             ContactItemsUpdated?.Invoke(this, EventArgs.Empty);
@@ -101,7 +94,6 @@ public class ContactService : IContactService
         }
         catch
         {
-            Debug.WriteLine("DeleteContact called");
             return false;
         }
     }

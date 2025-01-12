@@ -35,7 +35,6 @@ public partial class EditViewModel : ObservableObject, IQueryAttributable
 
             if (result)
             {
-                Debug.WriteLine("Contact updated successfully");
                 await Shell.Current.DisplayAlert("Success", "Contact updated successfully, returning to homepage", "OK");
 
 
@@ -50,7 +49,6 @@ public partial class EditViewModel : ObservableObject, IQueryAttributable
         }
         else
         {
-            Debug.WriteLine("One or more required update fields are empty");
             await Shell.Current.DisplayAlert("Error", "Please fill in all required fields", "OK");
             return false;
         }

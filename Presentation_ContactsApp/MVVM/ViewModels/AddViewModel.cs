@@ -43,41 +43,32 @@ public partial class AddViewModel : ObservableObject
 
     public void ResetForm()
     {
-        _registrationForm = new ContactItem();
+        RegistrationForm = new ContactItem();
     }
 
     //GitHub Copilot helped me with this Relay Command so that I could display a message without calling the create method twice.
     [RelayCommand]
     public async Task BtnCreateContact()
     {
-        Debug.WriteLine("BtnCreateContact called");
         IsContactCreated = false;
 
-        
-
-        Debug.WriteLine("Creating contact...");
-        if (_registrationForm != null)
+                if (RegistrationForm != null)
         {
-            Debug.WriteLine("Registration form is not null");
-            if (!string.IsNullOrWhiteSpace(_registrationForm.FullName) &&
-            !string.IsNullOrWhiteSpace(_registrationForm.Email) &&
-            !string.IsNullOrWhiteSpace(_registrationForm.Phone) &&
-            !string.IsNullOrWhiteSpace(_registrationForm.Address) &&
-            !string.IsNullOrWhiteSpace(_registrationForm.Postcode) &&
-            !string.IsNullOrWhiteSpace(_registrationForm.City))
+            if (!string.IsNullOrWhiteSpace(RegistrationForm.FullName) &&
+            !string.IsNullOrWhiteSpace(RegistrationForm.Email) &&
+            !string.IsNullOrWhiteSpace(RegistrationForm.Phone) &&
+            !string.IsNullOrWhiteSpace(RegistrationForm.Address) &&
+            !string.IsNullOrWhiteSpace(RegistrationForm.Postcode) &&
+            !string.IsNullOrWhiteSpace(RegistrationForm.City))
             {
-                Debug.WriteLine("All required fields are filled");
-                var result = _contactService.CreateContact(_registrationForm);
+                var result = _contactService.CreateContact(RegistrationForm);
                 if (result)
                 {
-                    Debug.WriteLine("Contact created successfully");
-                    AddContactToList(_registrationForm);
+                    AddContactToList(RegistrationForm);
 
-                    Debug.WriteLine("Saving contact list to file...");
                     _fileService.SaveListToFile(_contactList.ToList());
 
                     IsContactCreated = true;
-                    Debug.WriteLine("Contact list saved successfully");
                     await Shell.Current.DisplayAlert("Success", "Contact created successfully", "OK");
 
                     await Shell.Current.GoToAsync("///MainPage");
@@ -85,26 +76,22 @@ public partial class AddViewModel : ObservableObject
                 else
                 {
                     IsContactCreated = false;
-                    Debug.WriteLine("Failed to create contact");
                     await Shell.Current.DisplayAlert("Error", "Contact not created", "OK");
                 }
             }
             else
             {
-                Debug.WriteLine("One or more required create fields are empty");
                 await Shell.Current.DisplayAlert("Error", "Please fill in all required fields", "OK");
             }
         }
         else
         {
-            Debug.WriteLine("Registration form is null");
             await Shell.Current.DisplayAlert("Error", "Invalid contact information", "OK");
         }
     }
 
     public void AddContactToList(ContactItem contact)
     {
-        Debug.WriteLine("AddContactToList called");
         ContactList.Add(contact);
     }
 }

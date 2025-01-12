@@ -43,7 +43,7 @@
                     <Entry Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="{Binding Item.City}" />
                 </Grid>
 
-                <Button Text="Update Contact" Command="{Binding Btn_UpdateCommand}" FontAttributes="Bold" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
+                <Button Text="Update Contact" Command="{Binding Btn_UpdateCommand}" Margin="0, 40" Padding="0,10" HorizontalOptions="FillAndExpand" MaximumWidthRequest="800"/>
 
             </VerticalStackLayout>
         </Grid>

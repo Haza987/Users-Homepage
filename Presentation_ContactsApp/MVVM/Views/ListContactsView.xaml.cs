@@ -16,7 +16,6 @@ public partial class ListContactsView : ContentPage
         base.OnAppearing();
         if (BindingContext is ListContactsViewModel viewModel)
         {
-            Debug.WriteLine("ListContactsView OnAppearing called");
             viewModel.UpdateContactList();
         }
     }

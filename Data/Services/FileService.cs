@@ -24,13 +24,11 @@ public class FileService : IFileService
         {
             if (!Directory.Exists(_directoryPath))
             {
-                Debug.WriteLine("SaveListToFile directory doesnt exist called");
                 Directory.CreateDirectory(_directoryPath);
                 return true;
             }
             else
             {
-                Debug.WriteLine("SaveListToFile directory exists called");
                 var json = JsonSerializer.Serialize(list, _jsonSerializerOptions);
                 File.WriteAllText(_filePath, json);
                 return true;
@@ -50,12 +48,10 @@ public class FileService : IFileService
         {
             if (!File.Exists(_filePath))
             {
-                Debug.WriteLine("LoadListFromFile return empty list called");
                 return new List<ContactItem>();
             }
             else
             {
-                Debug.WriteLine("LoadListFromFile return existing list called");
                 var json = File.ReadAllText(_filePath);
                 var list = JsonSerializer.Deserialize<List<ContactItem>>(json, _jsonSerializerOptions);
                 return list ?? new List<ContactItem>();

@@ -20,7 +20,6 @@ public partial class ListContactsViewModel : ObservableObject
 
         _contactService.ContactItemsUpdated += (sender, e) =>
         {
-            Debug.WriteLine("ContactItemsUpdated event called");
             UpdateContactList();
         };
     }
@@ -58,17 +57,14 @@ public partial class ListContactsViewModel : ObservableObject
 
     public void UpdateContactList()
     {
-        Debug.WriteLine("UpdateContactList called");
         var updatedContacts = _contactService.GetAllContacts().ToList();
         Debug.WriteLine($"Number of contacts: {updatedContacts.Count}");
         if (ContactItems == null)
         {
-            Debug.WriteLine("ContactItems is null, initializing");
             ContactItems = new ObservableCollection<ContactItem>(updatedContacts);
         }
         else
         {
-            Debug.WriteLine("Clearing and updating ContactItems");
             ContactItems.Clear();
             foreach (var contact in updatedContacts)
             {
